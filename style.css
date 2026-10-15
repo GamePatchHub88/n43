@@ -1,0 +1,252 @@
+/* ---------- Tokens ---------- */
+:root {
+  --red-500: hsl(10, 79%, 65%);
+  --red-300: hsl(10, 100%, 76%);
+  --blue-300: hsl(186, 34%, 65%);
+  --blue-200: hsl(186, 34%, 80%);
+  --brown-950: hsl(25, 47%, 15%);
+  --brown-400: hsl(28, 10%, 53%);
+  --red-100: hsl(26, 66%, 93%);
+  --cream: hsl(33, 100%, 98%);
+
+  --bar-scale: 2.5px; /* px per $1 */
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: var(--red-100);
+  color: var(--brown-950);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.3;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 540px;
+  display: grid;
+  gap: 1rem;
+}
+
+/* ---------- Balance card ---------- */
+.balance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1rem;
+  background-color: var(--red-500);
+  color: var(--cream);
+}
+
+.balance__label {
+  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
+}
+
+.balance__amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ---------- Spending card ---------- */
+.spending {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: var(--cream);
+}
+
+.spending__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+/* ---------- Chart ---------- */
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  min-height: 11rem;
+  padding: 0;
+  list-style: none;
+}
+
+.chart__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart__bar {
+  position: relative;
+  width: 100%;
+  height: calc(var(--amount) * var(--bar-scale));
+  border-radius: 0.3125rem;
+  background-color: var(--red-500);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.chart__bar--current {
+  background-color: var(--blue-300);
+}
+
+.chart__bar:hover,
+.chart__bar:focus-visible {
+  background-color: var(--red-300);
+}
+
+.chart__bar--current:hover,
+.chart__bar--current:focus-visible {
+  background-color: var(--blue-200);
+}
+
+.chart__bar:focus-visible {
+  outline: 2px solid var(--brown-950);
+  outline-offset: 2px;
+}
+
+/* Tooltip (CSS only) */
+.chart__bar::after {
+  content: attr(data-amount);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.3125rem;
+  background-color: var(--brown-950);
+  color: var(--cream);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.chart__bar:hover::after,
+.chart__bar:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.chart__day {
+  font-size: 0.8125rem;
+  color: var(--brown-400);
+}
+
+/* ---------- Total ---------- */
+.total {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--red-100);
+}
+
+.total__label {
+  color: var(--brown-400);
+  font-size: 0.9375rem;
+}
+
+.total__amount {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0.25rem;
+}
+
+.total__change {
+  text-align: right;
+}
+
+.total__percent {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 0.125rem;
+}
+
+/* ---------- Attribution ---------- */
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 600px) {
+  :root {
+    --bar-scale: 2.58px;
+  }
+
+  .balance {
+    padding: 1.625rem 2rem;
+  }
+
+  .balance__label {
+    font-size: 1.125rem;
+  }
+
+  .balance__amount {
+    font-size: 2rem;
+  }
+
+  .spending {
+    padding: 2rem 2.25rem 2.25rem;
+    border-radius: 1.5rem;
+  }
+
+  .balance {
+    border-radius: 1.5rem;
+  }
+
+  .spending__title {
+    font-size: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .chart {
+    gap: 0.9rem;
+  }
+
+  .chart__day {
+    font-size: 0.9375rem;
+  }
+
+  .total__label {
+    font-size: 1.125rem;
+  }
+
+  .total__amount {
+    font-size: 3rem;
+  }
+
+  .total__percent {
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Frontend Mentor | Expenses chart component</title>
+</head>
+<body>
+
+  <main class="wrapper">
+
+    <section class="balance" aria-label="Balance">
+      <div>
+        <p class="balance__label">My balance</p>
+        <p class="balance__amount">$921.48</p>
+      </div>
+      <img src="./images/logo.svg" alt="" width="72" height="48">
+    </section>
+
+    <section class="spending" aria-labelledby="spending-title">
+      <h1 class="spending__title" id="spending-title">Spending - Last 7 days</h1>
+
+      <ul class="chart">
+        <li class="chart__item">
+          <span class="chart__bar" style="--amount: 17.45" data-amount="$17.45" tabindex="0" aria-label="mon: $17.45"></span>
+          <span class="chart__day">mon</span>
+        </li>
+        <li class="chart__item">
+          <span class="chart__bar" style="--amount: 34.91" data-amount="$34.91" tabindex="0" aria-label="tue: $34.91"></span>
+          <span class="chart__day">tue</span>
+        </li>
+        <li class="chart__item">
+          <span class="chart__bar chart__bar--current" style="--amount: 52.36" data-amount="$52.36" tabindex="0" aria-label="wed: $52.36 (today)"></span>
+          <span class="chart__day">wed</span>
+        </li>
+        <li class="chart__item">
+          <span class="chart__bar" style="--amount: 31.07" data-amount="$31.07" tabindex="0" aria-label="thu: $31.07"></span>
+          <span class="chart__day">thu</span>
+        </li>
+        <li class="chart__item">
+          <span class="chart__bar" style="--amount: 23.39" data-amount="$23.39" tabindex="0" aria-label="fri: $23.39"></span>
+          <span class="chart__day">fri</span>
+        </li>
+        <li class="chart__item">
+          <span class="chart__bar" style="--amount: 43.28" data-amount="$43.28" tabindex="0" aria-label="sat: $43.28"></span>
+          <span class="chart__day">sat</span>
+        </li>
+        <li class="chart__item">
+          <span class="chart__bar" style="--amount: 25.48" data-amount="$25.48" tabindex="0" aria-label="sun: $25.48"></span>
+          <span class="chart__day">sun</span>
+        </li>
+      </ul>
+
+      <div class="total">
+        <div>
+          <p class="total__label">Total this month</p>
+          <p class="total__amount">$478.33</p>
+        </div>
+        <div class="total__change">
+          <p class="total__percent">+2.4%</p>
+          <p class="total__label">from last month</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Mohamed Ahmed Helmy Aboura</a>.
+  </footer>
+</body>
+</html>
